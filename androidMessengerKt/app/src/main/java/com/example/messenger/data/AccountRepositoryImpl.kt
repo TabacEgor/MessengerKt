@@ -6,9 +6,7 @@ import com.example.messenger.domain.type.Either
 import com.example.messenger.domain.type.None
 import com.example.messenger.domain.type.exception.Failure
 import com.example.messenger.domain.type.flatMap
-import java.lang.UnsupportedOperationException
 import java.util.*
-import kotlin.UnsupportedOperationException
 
 class AccountRepositoryImpl(
     private val accountRemote: IAccountRemote,
