@@ -1,4 +1,4 @@
-package com.example.messenger.data
+package com.example.messenger.data.account
 
 import com.example.messenger.domain.type.Either
 import com.example.messenger.domain.type.None
