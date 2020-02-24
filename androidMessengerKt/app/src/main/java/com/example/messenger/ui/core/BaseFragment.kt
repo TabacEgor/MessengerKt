@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.messenger.R
-import com.example.messenger.domain.type.exception.Failure
+import com.example.messenger.domain.type.Failure
 import javax.inject.Inject
 
 abstract class BaseFragment : Fragment() {

@@ -3,7 +3,7 @@ package com.example.messenger.remote.account
 import com.example.messenger.data.IAccountRemote
 import com.example.messenger.domain.type.Either
 import com.example.messenger.domain.type.None
-import com.example.messenger.domain.type.exception.Failure
+import com.example.messenger.domain.type.Failure
 import com.example.messenger.remote.core.Request
 import com.example.messenger.remote.service.IApiService
 import javax.inject.Inject

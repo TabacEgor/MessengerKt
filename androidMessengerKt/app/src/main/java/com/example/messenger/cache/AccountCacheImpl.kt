@@ -3,7 +3,7 @@ package com.example.messenger.cache
 import com.example.messenger.data.account.IAccountCache
 import com.example.messenger.domain.type.Either
 import com.example.messenger.domain.type.None
-import com.example.messenger.domain.type.exception.Failure
+import com.example.messenger.domain.type.Failure
 import javax.inject.Inject
 
 class AccountCacheImpl @Inject constructor(private val prefsManager: SharedPrefsManager) : IAccountCache {

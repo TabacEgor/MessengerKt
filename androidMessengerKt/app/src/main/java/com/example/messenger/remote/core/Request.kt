@@ -1,7 +1,7 @@
 package com.example.messenger.remote.core
 
 import com.example.messenger.domain.type.Either
-import com.example.messenger.domain.type.exception.Failure
+import com.example.messenger.domain.type.Failure
 import retrofit2.Call
 import retrofit2.Response
 import javax.inject.Inject

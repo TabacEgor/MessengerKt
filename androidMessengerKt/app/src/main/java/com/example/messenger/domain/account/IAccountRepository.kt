@@ -1,9 +1,8 @@
 package com.example.messenger.domain.account
 
-import android.accounts.Account
 import com.example.messenger.domain.type.Either
 import com.example.messenger.domain.type.None
-import com.example.messenger.domain.type.exception.Failure
+import com.example.messenger.domain.type.Failure
 
 interface IAccountRepository {
 

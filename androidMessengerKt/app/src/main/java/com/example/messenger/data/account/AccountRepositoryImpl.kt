@@ -5,7 +5,7 @@ import com.example.messenger.domain.account.AccountEntity
 import com.example.messenger.domain.account.IAccountRepository
 import com.example.messenger.domain.type.Either
 import com.example.messenger.domain.type.None
-import com.example.messenger.domain.type.exception.Failure
+import com.example.messenger.domain.type.Failure
 import com.example.messenger.domain.type.flatMap
 import java.util.*
 

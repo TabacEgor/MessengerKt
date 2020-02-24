@@ -3,7 +3,7 @@ package com.example.messenger.presentation.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.messenger.domain.type.HandleOnce
-import com.example.messenger.domain.type.exception.Failure
+import com.example.messenger.domain.type.Failure
 
 abstract class BaseViewModel : ViewModel() {
 

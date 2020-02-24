@@ -3,7 +3,7 @@ package com.example.messenger.cache
 import android.content.SharedPreferences
 import com.example.messenger.domain.type.Either
 import com.example.messenger.domain.type.None
-import com.example.messenger.domain.type.exception.Failure
+import com.example.messenger.domain.type.Failure
 import javax.inject.Inject
 
 class SharedPrefsManager @Inject constructor(private val prefs: SharedPreferences) {

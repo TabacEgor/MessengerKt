@@ -4,7 +4,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.example.messenger.domain.type.HandleOnce
-import com.example.messenger.domain.type.exception.Failure
+import com.example.messenger.domain.type.Failure
 
 fun <T : Any, L : LiveData<T>> LifecycleOwner.onSuccess(livedata: L, body: (T?) -> Unit) =
     livedata.observe(this, Observer(body))
