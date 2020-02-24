@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Messenger</string>
+
+    <string name="screen_register">Registration</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="name">Name</string>
+    <string name="register">Registration</string>
+    <string name="already_have_account">Already have account?</string>
+
+    <!-- errors -->
+    <string name="error_network">No network connection.</string>
+    <string name="error_server">Server error.</string>
+    <string name="error_email_already_exist">Email has already exists.</string>
+    <string name="error_password_mismatch">Passwords mismatch.</string>
+
+    <!-- success -->
+    <string name="account_created">Account created!</string>
+
 </resources>
