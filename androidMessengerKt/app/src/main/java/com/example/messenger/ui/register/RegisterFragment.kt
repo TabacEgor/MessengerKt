@@ -3,6 +3,7 @@ package com.example.messenger.ui.register
 import android.os.Bundle
 import android.view.View
 import com.example.messenger.R
+import com.example.messenger.domain.account.AccountEntity
 import com.example.messenger.domain.type.None
 import com.example.messenger.presentation.viewmodel.AccountViewModel
 import com.example.messenger.ui.App
@@ -24,6 +25,7 @@ class RegisterFragment : BaseFragment() {
 
         accountViewModel = viewModel {
             onSuccess(registerData, ::handleRegister)
+            onSuccess(accountData, ::handleLogin)
             onFailure(failureData, ::handleFailure)
         }
     }
@@ -33,6 +35,10 @@ class RegisterFragment : BaseFragment() {
 
         btnNewMembership.setOnClickListener {
             register()
+        }
+
+        btnAlreadyHaveAcc.setOnClickListener {
+            activity?.finish()
         }
     }
 
@@ -69,7 +75,13 @@ class RegisterFragment : BaseFragment() {
     }
 
     private fun handleRegister(none: None? = None()) {
-        hideProgress()
-        showMessage(getString(R.string.account_created))
+        accountViewModel.login(etEmail.text.toString(), etPassword.text.toString())
+    }
+
+    private fun handleLogin(accountEntity: AccountEntity?) {
+        activity?.let {
+            navigator.showHome(it)
+            it.finish()
+        }
     }
 }

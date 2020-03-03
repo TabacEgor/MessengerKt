@@ -40,6 +40,7 @@ ext {
     lifecycleVersion = "2.2.0"
     roomVersion = "2.2.3"
     formEditTextVersion = "1.3.5"
+    circleImageViewVersion = "3.1.0"
 }
 
 dependencies {
@@ -51,6 +52,7 @@ dependencies {
     implementation "androidx.core:core-ktx:$appCompatVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     implementation 'com.google.android.material:material:1.1.0'
+    implementation "de.hdodenhof:circleimageview:$circleImageViewVersion"
 
     //kotlin coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
