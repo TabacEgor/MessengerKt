@@ -19,7 +19,7 @@ class Request @Inject constructor(private val networkHandler: NetworkHandler) {
 
     private fun <T : BaseResponse, R> execute(call: Call<T>, transform: (T) -> R): Either<Failure, R> {
         return try {
-            val response = call.execute()
+            var response = call.clone().execute()
             when (response.isSucceed()) {
                 true -> Either.Right(transform(response.body()!!))
                 false -> Either.Left(response.parseError())
