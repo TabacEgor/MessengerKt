@@ -60,7 +60,7 @@ class AccountRemoteImpl @Inject constructor(
         val map = HashMap<String, String>()
         map.put(IApiService.PARAM_EMAIL, email)
         map.put(IApiService.PARAM_PASSWORD, password)
-        map.put(IApiService.PARAM_OLD_TOKEN, oldToken)
+        map.put(IApiService.PARAM_TOKEN, oldToken)
         return map
     }
 
