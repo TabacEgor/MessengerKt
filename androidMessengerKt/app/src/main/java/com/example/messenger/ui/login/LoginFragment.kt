@@ -2,6 +2,7 @@ package com.example.messenger.ui.login
 
 import android.os.Bundle
 import android.view.View
+import com.example.messenger.BuildConfig
 import com.example.messenger.R
 import com.example.messenger.domain.account.AccountEntity
 import com.example.messenger.presentation.viewmodel.AccountViewModel
@@ -27,6 +28,11 @@ class LoginFragment : BaseFragment() {
         accountViewModel = viewModel {
             onSuccess(accountData, ::renderAccount)
             onFailure(failureData, ::handleFailure)
+        }
+
+        if (BuildConfig.DEBUG) {
+            etEmail.setText("\"test@test.test\"")
+            etPassword.setText("test")
         }
     }
 

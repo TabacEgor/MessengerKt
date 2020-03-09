@@ -47,8 +47,9 @@
                         android:background="@drawable/circle_circle"
                         android:src="@drawable/ic_account_circle"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-<!--                        app:profileImage="@{account.image}"-->
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+<!--                app:profileImage="@{account.image}"-->
 
                 <LinearLayout
                         android:layout_width="0dp"
@@ -90,8 +91,8 @@
                             android:layout_marginTop="3dp"
                             android:lines="1"
                             android:text="@{account.status}"
-                            tools:text="Status" />
-<!--                    android:visibility="@{account.status.empty ? View.GONE : View.VISIBLE}"-->
+                            tools:text="Status"
+                            android:visibility="@{account.status.empty ? View.GONE : View.VISIBLE}"/>
 
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
