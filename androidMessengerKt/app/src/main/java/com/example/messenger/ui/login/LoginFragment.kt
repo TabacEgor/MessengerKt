@@ -30,14 +30,15 @@ class LoginFragment : BaseFragment() {
             onFailure(failureData, ::handleFailure)
         }
 
-        if (BuildConfig.DEBUG) {
-            etEmail.setText("\"test@test.test\"")
-            etPassword.setText("test")
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (BuildConfig.DEBUG) {
+            etEmail.setText("test@test.test")
+            etPassword.setText("test")
+        }
 
         btnLogin.setOnClickListener {
             validateFields()
