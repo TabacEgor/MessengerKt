@@ -1,7 +1,7 @@
 package com.example.messenger.presentation.injection
 
 import com.example.messenger.BuildConfig
-import com.example.messenger.data.IAccountRemote
+import com.example.messenger.data.account.IAccountRemote
 import com.example.messenger.remote.account.AccountRemoteImpl
 import com.example.messenger.remote.core.Request
 import com.example.messenger.remote.service.IApiService

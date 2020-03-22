@@ -10,4 +10,7 @@ sealed class Failure {
     object AuthError : Failure()
     object TokenError : Failure()
     object NoSavedAccountsError : Failure()
+    object AlreadyFriendError : Failure()
+    object AlreadyRequestedFriendError : Failure()
+    object ContactNotFoundError : Failure()
 }

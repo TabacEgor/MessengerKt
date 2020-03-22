@@ -1,7 +1,7 @@
 package com.example.messenger.presentation.injection
 
 import android.content.Context
-import com.example.messenger.data.IAccountRemote
+import com.example.messenger.data.account.IAccountRemote
 import com.example.messenger.data.account.AccountRepositoryImpl
 import com.example.messenger.data.account.IAccountCache
 import com.example.messenger.domain.account.IAccountRepository
