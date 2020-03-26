@@ -16,7 +16,7 @@ class FriendsViewModel @Inject constructor(
 
     var friendsData: MutableLiveData<List<FriendEntity>> = MutableLiveData()
     var friendRequestsData: MutableLiveData<List<FriendEntity>> = MutableLiveData()
-    var deleteFriendsData: MutableLiveData<None> = MutableLiveData()
+    var deleteFriendData: MutableLiveData<None> = MutableLiveData()
     var addFriendData: MutableLiveData<None> = MutableLiveData()
     var approveFriendData: MutableLiveData<None> = MutableLiveData()
     var cancelFriendData: MutableLiveData<None> = MutableLiveData()
@@ -54,7 +54,7 @@ class FriendsViewModel @Inject constructor(
     }
 
     private fun handleDeleteFriend(none: None?) {
-        deleteFriendsData.value = none
+        deleteFriendData.value = none
     }
 
     private fun handleAddFriend(none: None?) {

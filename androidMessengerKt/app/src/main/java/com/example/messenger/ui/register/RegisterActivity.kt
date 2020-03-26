@@ -5,5 +5,5 @@ import com.example.messenger.ui.core.BaseFragment
 
 class RegisterActivity : BaseActivity() {
 
-    override val fragment: BaseFragment = RegisterFragment()
+    override var fragment: BaseFragment = RegisterFragment()
 }

@@ -8,6 +8,8 @@ import com.example.messenger.presentation.injection.ViewModelModule
 import com.example.messenger.ui.core.navigation.RouteActivity
 import com.example.messenger.ui.register.RegisterActivity
 import com.example.messenger.ui.firebase.FirebaseService
+import com.example.messenger.ui.friends.FriendRequestsFragment
+import com.example.messenger.ui.friends.FriendsFragment
 import com.example.messenger.ui.home.ChatsFragment
 import com.example.messenger.ui.home.HomeActivity
 import com.example.messenger.ui.login.LoginFragment
@@ -47,6 +49,8 @@ interface AppComponent {
     fun inject(fragment: RegisterFragment)
     fun inject(fragment: LoginFragment)
     fun inject(fragment: ChatsFragment)
+    fun inject(fragment: FriendsFragment)
+    fun inject(fragment: FriendRequestsFragment)
 
     // services
     fun inject(service: FirebaseService)
