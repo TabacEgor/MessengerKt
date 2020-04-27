@@ -15,7 +15,7 @@ import kotlin.coroutines.CoroutineContext
  */
 abstract class UseCase<out Type, in Params> {
     var backgroundContext: CoroutineContext = Dispatchers.IO
-    var foregroundContext:CoroutineContext = Dispatchers.Main
+    var foregroundContext: CoroutineContext = Dispatchers.Main
 
     private var parentJob: Job = Job()
 
