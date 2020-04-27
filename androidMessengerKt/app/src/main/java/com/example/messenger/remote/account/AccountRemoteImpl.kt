@@ -101,17 +101,17 @@ class AccountRemoteImpl @Inject constructor(
         image: String
     ): Map<String, String> {
         val map = HashMap<String, String>()
-        map.put(ApiService.PARAM_USER_ID, id.toString())
-        map.put(ApiService.PARAM_EMAIL, email)
-        map.put(ApiService.PARAM_NAME, name)
-        map.put(ApiService.PARAM_PASSWORD, password)
-        map.put(ApiService.PARAM_STATUS, status)
-        map.put(ApiService.PARAM_TOKEN, token)
+        map.put(IApiService.PARAM_USER_ID, id.toString())
+        map.put(IApiService.PARAM_EMAIL, email)
+        map.put(IApiService.PARAM_NAME, name)
+        map.put(IApiService.PARAM_PASSWORD, password)
+        map.put(IApiService.PARAM_STATUS, status)
+        map.put(IApiService.PARAM_TOKEN, token)
         if (image.startsWith("../")) {
-            map.put(ApiService.PARAM_IMAGE_UPLOADED, image)
+            map.put(IApiService.PARAM_IMAGE_UPLOADED, image)
         } else {
-            map.put(ApiService.PARAM_IMAGE_NEW, image)
-            map.put(ApiService.PARAM_IMAGE_NEW_NAME, "user_${id}_${Date().time}_photo")
+            map.put(IApiService.PARAM_IMAGE_NEW, image)
+            map.put(IApiService.PARAM_IMAGE_NEW_NAME, "user_${id}_${Date().time}_photo")
         }
         return map
     }
