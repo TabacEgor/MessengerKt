@@ -9,12 +9,14 @@ class AccountViewModel @Inject constructor(
     val registerUseCase: Register,
     val loginUseCase: Login,
     val getAccountUseCase: GetAccount,
-    val logoutUseCase: Logout
+    val logoutUseCase: Logout,
+    val editAccountUseCase: EditAccount
 ) : BaseViewModel() {
 
     val registerData: MutableLiveData<None> = MutableLiveData()
     val accountData: MutableLiveData<AccountEntity> = MutableLiveData()
     val logoutData: MutableLiveData<None> = MutableLiveData()
+    val editAccountData: MutableLiveData<AccountEntity> = MutableLiveData()
 
     fun register(email: String, name: String, password: String) {
         registerUseCase(Register.Params(email, name, password)) { it.either(::handleFailure, ::handleRegister) }
@@ -30,6 +32,14 @@ class AccountViewModel @Inject constructor(
 
     fun logout() {
         logoutUseCase(None()) { it.either(::handleFailure, ::handleLogout) }
+    }
+
+    fun editAccount(entity: AccountEntity) {
+        editAccountUseCase(entity) { it.either(::handleFailure, ::handleEditAccount) }
+    }
+
+    private fun handleEditAccount(account: AccountEntity) {
+        this.editAccountData.value = account
     }
 
     private fun handleRegister(none: None) {

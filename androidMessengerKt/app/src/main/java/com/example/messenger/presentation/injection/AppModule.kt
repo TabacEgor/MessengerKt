@@ -6,8 +6,10 @@ import com.example.messenger.data.account.AccountRepositoryImpl
 import com.example.messenger.data.account.IAccountCache
 import com.example.messenger.data.friends.FriendsRepositoryImpl
 import com.example.messenger.data.friends.IFriendsRemote
+import com.example.messenger.data.media.MediaRepositoryImpl
 import com.example.messenger.domain.account.IAccountRepository
 import com.example.messenger.domain.friends.IFriendsRepository
+import com.example.messenger.domain.media.IMediaRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -30,4 +32,10 @@ class AppModule(private val context: Context) {
     fun provideFriendsRepository(remote: IFriendsRemote, accountCache: IAccountCache): IFriendsRepository {
         return FriendsRepositoryImpl(accountCache, remote)
     }
-}
+
+    @Provides
+    @Singleton
+    fun provideMediaRepository(context: Context): IMediaRepository {
+        return MediaRepositoryImpl(context)
+    }
+ }
