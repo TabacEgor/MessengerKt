@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ServiceFactory {
-    const val SERVER_URL = "http://192.168.0.102:8080"
+    const val SERVER_URL = "http://192.168.0.103:8080"
     const val BASE_URL = "$SERVER_URL/chatphp/rest_api/"
 
     fun makeService(isDebug: Boolean): IApiService {

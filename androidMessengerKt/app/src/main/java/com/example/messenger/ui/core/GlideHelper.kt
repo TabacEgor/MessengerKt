@@ -3,6 +3,7 @@ package com.example.messenger.ui.core
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
+import com.bumptech.glide.Glide
 import com.example.messenger.remote.service.ServiceFactory
 
 object GlideHelper {

@@ -3,6 +3,8 @@ package com.example.messenger.ui.core
 import android.Manifest
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
+import com.github.kayvannj.permission_utils.Func
+import com.github.kayvannj.permission_utils.PermissionUtil
 import javax.inject.Inject
 import javax.inject.Singleton
 

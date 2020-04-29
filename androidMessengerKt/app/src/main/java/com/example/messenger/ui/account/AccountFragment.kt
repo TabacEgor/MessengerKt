@@ -4,12 +4,14 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import com.bumptech.glide.Glide
 import com.example.messenger.R
 import com.example.messenger.domain.account.AccountEntity
 import com.example.messenger.presentation.viewmodel.AccountViewModel
 import com.example.messenger.presentation.viewmodel.MediaViewModel
 import com.example.messenger.ui.App
 import com.example.messenger.ui.core.BaseFragment
+import com.example.messenger.ui.core.GlideHelper
 import com.example.messenger.ui.core.ext.onFailure
 import com.example.messenger.ui.core.ext.onSuccess
 import kotlinx.android.synthetic.main.fragment_account.*
