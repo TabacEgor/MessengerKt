@@ -4,6 +4,7 @@ import android.view.View
 import com.example.messenger.R
 import com.example.messenger.domain.friends.FriendEntity
 import com.example.messenger.ui.core.BaseAdapter
+import com.example.messenger.ui.core.GlideHelper
 import kotlinx.android.synthetic.main.item_friend_request.view.*
 
 open class FriendRequestsAdapter : BaseAdapter<FriendRequestsAdapter.FriendRequestViewHolder>() {
@@ -31,6 +32,7 @@ open class FriendRequestsAdapter : BaseAdapter<FriendRequestsAdapter.FriendReque
 
         override fun onBind(item: Any?) {
             (item as? FriendEntity)?.let {
+                GlideHelper.loadImage(view.context, it.image, view.imgPhoto, R.drawable.ic_account_circle)
                 view.tvName.text = it.name
             }
         }

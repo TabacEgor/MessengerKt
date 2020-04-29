@@ -15,8 +15,8 @@
     <string name="error_already_friend">You are already friends.</string>
     <string name="error_already_requested_friend">Friend request already sent.</string>
     <string name="error_contact_not_found">Пользователь не найден.</string>
-    <string name="error_picking_file">Ошибка при обработке файла, попробуйте еще раз</string>
-    <string name="error_wrong_password">Неправильный пароль</string>
+    <string name="error_picking_file">Error handling picking file, try again</string>
+    <string name="error_wrong_password">Wrong password</string>
     <string name="error_empty_password">Поле пароля не может быть пустым</string>
 
 
@@ -60,15 +60,15 @@
     <string name="message_subject_promt_app">Hello, lets talk!</string>
     <string name="url_google_play">https://play.google.com/store/apps/details?id=</string>
 
-    <string name="friend_request">Запрос в друзья</string>
-    <string name="friend_request_approved">Запрос в друзья подтвержден</string>
-    <string name="friend_request_cancelled">Запрос в друзья отменен</string>
+    <string name="friend_request">Friend request</string>
+    <string name="friend_request_approved">Friend request approved</string>
+    <string name="friend_request_cancelled">Friend request canceled</string>
 
-    <string name="pick">Выберите фото</string>
-    <string name="camera">Камера</string>
-    <string name="gallery">Галерея</string>
+    <string name="pick">Choose photo</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
 
-    <string name="success_edit_user">Данные обновлены</string>
+    <string name="success_edit_user">Data refreshed</string>
     <string name="message">Сообщение</string>
     <string name="send_message">отправляет вам сообщение</string>
 
