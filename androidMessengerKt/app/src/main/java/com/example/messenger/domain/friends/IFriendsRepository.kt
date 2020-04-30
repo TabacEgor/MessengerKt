@@ -6,9 +6,9 @@ import com.example.messenger.domain.type.None
 
 interface IFriendsRepository {
 
-    fun getFriends(): Either<Failure, List<FriendEntity>>
+    fun getFriends(needFetch: Boolean): Either<Failure, List<FriendEntity>>
 
-    fun getFriendsRequests(): Either<Failure, List<FriendEntity>>
+    fun getFriendsRequests(needFetch: Boolean): Either<Failure, List<FriendEntity>>
 
     fun approveFriendRequest(friendEntity: FriendEntity): Either<Failure, None>
 
