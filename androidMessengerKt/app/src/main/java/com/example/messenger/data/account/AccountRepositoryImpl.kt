@@ -57,4 +57,6 @@ class AccountRepositoryImpl(
         }
     }
 
+    override fun checkAuth(): Either<Failure, Boolean> = accountCache.checkAuth()
+
 }

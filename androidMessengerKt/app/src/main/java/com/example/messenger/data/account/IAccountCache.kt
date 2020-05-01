@@ -17,5 +17,5 @@ interface IAccountCache {
 
     fun saveAccount(account: AccountEntity): Either<Failure, None>
 
-//    fun checkAuth(): Either<Failure, Boolean>
+    fun checkAuth(): Either<Failure, Boolean>
 }
