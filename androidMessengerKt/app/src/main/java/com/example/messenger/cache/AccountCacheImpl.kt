@@ -7,7 +7,9 @@ import com.example.messenger.domain.type.None
 import com.example.messenger.domain.type.Failure
 import javax.inject.Inject
 
-class AccountCacheImpl @Inject constructor(private val prefsManager: SharedPrefsManager) : IAccountCache {
+class AccountCacheImpl @Inject constructor(
+    private val prefsManager: SharedPrefsManager
+) : IAccountCache {
 
     override fun getToken(): Either<Failure, String> {
         return prefsManager.getToken()
@@ -28,4 +30,6 @@ class AccountCacheImpl @Inject constructor(private val prefsManager: SharedPrefs
     override fun saveAccount(account: AccountEntity): Either<Failure, None> {
         return prefsManager.saveAccount(account)
     }
+
+    override fun checkAuth(): Either<Failure, Boolean> = prefsManager.containsAnyAccount()
 }
