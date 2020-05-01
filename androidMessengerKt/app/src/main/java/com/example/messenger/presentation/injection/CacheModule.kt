@@ -3,8 +3,11 @@ package com.example.messenger.presentation.injection
 import android.content.Context
 import android.content.SharedPreferences
 import com.example.messenger.cache.AccountCacheImpl
+import com.example.messenger.cache.ChatDatabase
 import com.example.messenger.cache.SharedPrefsManager
+import com.example.messenger.cache.friends.FriendsDao
 import com.example.messenger.data.account.IAccountCache
+import com.example.messenger.data.friends.IFriendsCache
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -21,4 +24,12 @@ class CacheModule {
     @Provides
     @Singleton
     fun provideAccountCache(prefsManager: SharedPrefsManager): IAccountCache = AccountCacheImpl(prefsManager)
+
+    @Provides
+    @Singleton
+    fun provideChatDatabase(context: Context): ChatDatabase = ChatDatabase.getInstance(context)
+
+    @Provides
+    @Singleton
+    fun provideFriendsCache(chatDatabase: ChatDatabase): IFriendsCache = chatDatabase.friendsDao
 }

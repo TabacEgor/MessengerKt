@@ -5,6 +5,7 @@ import com.example.messenger.data.account.IAccountRemote
 import com.example.messenger.data.account.AccountRepositoryImpl
 import com.example.messenger.data.account.IAccountCache
 import com.example.messenger.data.friends.FriendsRepositoryImpl
+import com.example.messenger.data.friends.IFriendsCache
 import com.example.messenger.data.friends.IFriendsRemote
 import com.example.messenger.data.media.MediaRepositoryImpl
 import com.example.messenger.domain.account.IAccountRepository
@@ -29,8 +30,8 @@ class AppModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun provideFriendsRepository(remote: IFriendsRemote, accountCache: IAccountCache): IFriendsRepository {
-        return FriendsRepositoryImpl(accountCache, remote)
+    fun provideFriendsRepository(remote: IFriendsRemote, accountCache: IAccountCache, friendsCache: IFriendsCache): IFriendsRepository {
+        return FriendsRepositoryImpl(accountCache, remote, friendsCache)
     }
 
     @Provides
