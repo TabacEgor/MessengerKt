@@ -11,23 +11,16 @@ abstract class BaseAdapter<VH : BaseAdapter.BaseViewHolder> : RecyclerView.Adapt
 
     var onClick: OnClick? = null
 
-    abstract val layoutResource: Int
+    abstract fun createHolder(parent: ViewGroup): VH
 
-    abstract fun createHolder(view: View, viewType: Int): VH
-
-    override fun getItemCount(): Int {
-        return items.size
-    }
+    override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.bind(getItem(position))
         holder.onClick = onClick
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        val view = LayoutInflater.from(parent.context).inflate(layoutResource, parent, false)
-        return createHolder(view, viewType)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH = createHolder(parent)
 
     fun getItem(position: Int): Any {
         return items[position]
