@@ -102,7 +102,7 @@ class HomeActivity : BaseActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.requestContainer, FriendRequestsFragment()).commit()
 
         btnRequests.setOnClickListener {
-            friendsViewModel.getFriendRequests()
+            friendsViewModel.getFriendRequests(true)
 
             if (requestContainer.visibility != View.VISIBLE) {
                 requestContainer.visibility = View.GONE
