@@ -22,4 +22,5 @@ interface IAccountRepository {
 
     fun editAccount(entity: AccountEntity): Either<Failure, AccountEntity>
 
+    fun checkAuth(): Either<Failure, Boolean>
 }
