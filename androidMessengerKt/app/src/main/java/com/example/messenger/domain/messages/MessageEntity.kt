@@ -24,7 +24,13 @@ data class MessageEntity(
     @ColumnInfo(name = "message_type_id")
     var type: Int,
     var contact: ContactEntity? = null,
-    var fromMe: Boolean = false
+    var fromMe: Boolean = false,
+    @SerializedName("deleted_by_sender_id")
+    @ColumnInfo(name = "deleted_by_sender_id")
+    var deletedBySender: Int = 0,
+    @SerializedName("deleted_by_receiver_id")
+    @ColumnInfo(name = "deleted_by_receiver_id")
+    var deletedByReceiver: Int = 0
 ) {
     constructor() : this(0L,0L,0L,"",0L,0,null, false)
 }
@@ -33,13 +39,16 @@ data class ContactEntity(
     @SerializedName("user_id")
     var id: Long,
     var name: String,
-    var image: String
+    var image: String,
+    @SerializedName("last_seen")
+    @ColumnInfo(name = "last_seen")
+    var lastSeen: Long
 )
 
 class ContactConverter {
     @TypeConverter
     fun toString(contact: ContactEntity?): String? {
-        return if (contact == null) null else "${contact.id}||${contact.name}||${contact.image}"
+        return if (contact == null) null else "${contact.id}||${contact.name}||${contact.image}||${contact.lastSeen}"
     }
 
     @TypeConverter
@@ -48,7 +57,7 @@ class ContactConverter {
             null
         } else {
             val arr = string.split("||")
-            ContactEntity(arr[0].toLong(), arr[1], arr[2])
+            ContactEntity(arr[0].toLong(), arr[1], arr[2], arr[3].toLong())
         }
     }
 }

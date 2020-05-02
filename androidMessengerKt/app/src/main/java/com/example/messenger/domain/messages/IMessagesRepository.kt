@@ -18,4 +18,6 @@ interface IMessagesRepository {
         contactId: Long,
         needFetch: Boolean
     ): Either<Failure, List<MessageEntity>>
+
+    fun deleteMessagesByUser(messageId: Long): Either<Failure, None>
 }

@@ -18,5 +18,8 @@ class FriendEntity(
     var status: String,
     var image: String,
     @ColumnInfo(name = "is_request")
-    var isRequest: Int = 0 // 0 -> friend 1->friend request
+    var isRequest: Int = 0, // 0 -> friend 1->friend request
+    @ColumnInfo(name = "last_seen")
+    @SerializedName("last_seen")
+    var lastSeen: Long = 0
 )
