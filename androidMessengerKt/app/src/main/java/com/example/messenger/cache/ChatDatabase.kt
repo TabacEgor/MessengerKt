@@ -9,7 +9,7 @@ import com.example.messenger.cache.messages.MessagesDao
 import com.example.messenger.domain.friends.FriendEntity
 import com.example.messenger.domain.messages.MessageEntity
 
-@Database(entities = [FriendEntity::class, MessageEntity::class], version = 5, exportSchema = false)
+@Database(entities = [FriendEntity::class, MessageEntity::class], version = 8, exportSchema = false)
 abstract class ChatDatabase : RoomDatabase() {
 
     abstract val friendsDao: FriendsDao

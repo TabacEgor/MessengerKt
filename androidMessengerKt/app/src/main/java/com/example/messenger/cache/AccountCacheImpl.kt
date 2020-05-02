@@ -8,7 +8,8 @@ import com.example.messenger.domain.type.Failure
 import javax.inject.Inject
 
 class AccountCacheImpl @Inject constructor(
-    private val prefsManager: SharedPrefsManager
+    private val prefsManager: SharedPrefsManager,
+    private val chatDatabase: ChatDatabase
 ) : IAccountCache {
 
     override fun getToken(): Either<Failure, String> {
@@ -20,6 +21,7 @@ class AccountCacheImpl @Inject constructor(
     }
 
     override fun logout(): Either<Failure, None> {
+        chatDatabase.clearAllTables()
         return prefsManager.removeAccount()
     }
 
