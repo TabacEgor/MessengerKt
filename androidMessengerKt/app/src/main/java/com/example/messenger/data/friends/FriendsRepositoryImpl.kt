@@ -20,6 +20,7 @@ class FriendsRepositoryImpl(
                     Either.Right(friendsCache.getFriends())
                 }
             }
+            .map { it.sortedBy { it.name } }
             .onNext { it.map { friendsCache.saveFriend(it) } }
     }
 
@@ -32,6 +33,7 @@ class FriendsRepositoryImpl(
                     Either.Right(friendsCache.getFriendRequests())
                 }
             }
+            .map { it.sortedBy { it.name } }
             .onNext { it.map {
                 it.isRequest = 1
                 friendsCache.saveFriend(it)

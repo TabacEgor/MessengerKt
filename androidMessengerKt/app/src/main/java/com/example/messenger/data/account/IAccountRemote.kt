@@ -27,4 +27,6 @@ interface IAccountRemote {
         token: String,
         image: String
     ) : Either<Failure, AccountEntity>
+
+    fun updateAccountLastSeen(userId: Long, token: String, lastSeen: Long): Either<Failure, None>
 }
