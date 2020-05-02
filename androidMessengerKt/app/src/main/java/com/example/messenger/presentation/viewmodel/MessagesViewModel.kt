@@ -1,22 +1,21 @@
 package com.example.messenger.presentation.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import com.example.messenger.domain.messages.GetChats
-import com.example.messenger.domain.messages.GetMessagesWithContact
-import com.example.messenger.domain.messages.MessageEntity
-import com.example.messenger.domain.messages.SendMessage
+import com.example.messenger.domain.messages.*
 import com.example.messenger.domain.type.None
 import javax.inject.Inject
 
 class MessagesViewModel @Inject constructor(
     val getChatsUseCase: GetChats,
     val getMessagesUseCase: GetMessagesWithContact,
-    val sendMessageUseCase: SendMessage
+    val sendMessageUseCase: SendMessage,
+    val deleteMessageUseCase: DeleteMessage
 ) : BaseViewModel() {
 
     val getChatsData: MutableLiveData<List<MessageEntity>> = MutableLiveData()
     val getMessagesData: MutableLiveData<List<MessageEntity>> = MutableLiveData()
     val sendMessageData: MutableLiveData<None> = MutableLiveData()
+    val deleteMessageData: MutableLiveData<None> = MutableLiveData()
 
     fun getChats(needFetch: Boolean = false) {
         getChatsUseCase(GetChats.Params(needFetch)) { it.either(::handleFailure) { handleGetChats(it, !needFetch) } }
@@ -30,6 +29,10 @@ class MessagesViewModel @Inject constructor(
 
     fun sendMessage(toId: Long, message: String, image: String) {
         sendMessageUseCase(SendMessage.Params(toId, message, image)) { it.either(::handleFailure) { handleSendMessage(it, toId)} }
+    }
+
+    fun deleteMessage(contactId: Long, messageId: Long) {
+        deleteMessageUseCase(DeleteMessage.Params(messageId)) { it.either(::handleFailure) { handleDeleteMessage(contactId, it) } }
     }
 
     private fun handleGetChats(messages: List<MessageEntity>, fromCache: Boolean) {
@@ -58,10 +61,17 @@ class MessagesViewModel @Inject constructor(
         getMessages(contactId, true)
     }
 
+    private fun handleDeleteMessage(contactId: Long, none: None?) {
+        deleteMessageData.value = none
+
+        getMessages(contactId, true)
+    }
+
     override fun onCleared() {
         super.onCleared()
         getChatsUseCase.unsubscribe()
         getMessagesUseCase.unsubscribe()
         sendMessageUseCase.unsubscribe()
+        deleteMessageUseCase.unsubscribe()
     }
 }

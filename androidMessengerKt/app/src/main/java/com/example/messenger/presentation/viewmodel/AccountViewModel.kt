@@ -10,7 +10,8 @@ class AccountViewModel @Inject constructor(
     val loginUseCase: Login,
     val getAccountUseCase: GetAccount,
     val logoutUseCase: Logout,
-    val editAccountUseCase: EditAccount
+    val editAccountUseCase: EditAccount,
+    val updateLastSeenUseCase: UpdateLastSeen
 ) : BaseViewModel() {
 
     val registerData: MutableLiveData<None> = MutableLiveData()
@@ -38,6 +39,10 @@ class AccountViewModel @Inject constructor(
         editAccountUseCase(entity) { it.either(::handleFailure, ::handleEditAccount) }
     }
 
+    fun updateLastSeen() {
+        updateLastSeenUseCase(None()) { it.either(::handleFailure) {} }
+    }
+
     private fun handleEditAccount(account: AccountEntity) {
         this.editAccountData.value = account
     }
@@ -60,5 +65,6 @@ class AccountViewModel @Inject constructor(
         loginUseCase.unsubscribe()
         getAccountUseCase.unsubscribe()
         logoutUseCase.unsubscribe()
+        updateLastSeenUseCase.unsubscribe()
     }
 }
