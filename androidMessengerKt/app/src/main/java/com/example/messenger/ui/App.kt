@@ -14,6 +14,7 @@ import com.example.messenger.ui.friends.FriendRequestsFragment
 import com.example.messenger.ui.friends.FriendsFragment
 import com.example.messenger.ui.home.ChatsFragment
 import com.example.messenger.ui.home.HomeActivity
+import com.example.messenger.ui.home.MessagesFragment
 import com.example.messenger.ui.login.LoginFragment
 import com.example.messenger.ui.register.RegisterFragment
 import dagger.Component
@@ -55,6 +56,7 @@ interface AppComponent {
     fun inject(fragment: FriendsFragment)
     fun inject(fragment: FriendRequestsFragment)
     fun inject(fragment: AccountFragment)
+    fun inject(fragment: MessagesFragment)
 
     // services
     fun inject(service: FirebaseService)

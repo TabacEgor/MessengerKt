@@ -30,8 +30,8 @@
     <string name="dont_have_account">Еще нет аккаунта?</string>
     <string name="forget_password">Забыли пароль?</string>
     <string name="login">Вход</string>
-    <string name="chats">Чаты</string>
-    <string name="friends">Друзья</string>
+    <string name="chats">Chats</string>
+    <string name="friends">Friends</string>
     <string name="add_friend">Пригласить друга</string>
     <string name="profile">Аккаунт</string>
     <string name="friend_requests">Входящие приглашения</string>
@@ -69,8 +69,8 @@
     <string name="gallery">Gallery</string>
 
     <string name="success_edit_user">Data refreshed</string>
-    <string name="message">Сообщение</string>
-    <string name="send_message">отправляет вам сообщение</string>
+    <string name="message">Message</string>
+    <string name="send_message">send you message</string>
 
     <string name="photo">Фотография</string>
 

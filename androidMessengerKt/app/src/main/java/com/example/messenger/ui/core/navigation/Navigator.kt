@@ -14,6 +14,7 @@ import com.example.messenger.remote.service.IApiService
 import com.example.messenger.ui.account.AccountActivity
 import com.example.messenger.ui.core.PermissionManager
 import com.example.messenger.ui.home.HomeActivity
+import com.example.messenger.ui.home.MessagesActivity
 import com.example.messenger.ui.login.LoginActivity
 import com.example.messenger.ui.register.RegisterActivity
 import com.example.messenger.ui.user.UserActivity
@@ -74,6 +75,13 @@ class Navigator @Inject constructor(
         bundle.putString(IApiService.PARAM_EMAIL, friendEntity.email)
         bundle.putString(IApiService.PARAM_STATUS, friendEntity.status)
         context.startActivity<UserActivity>(args = bundle)
+    }
+
+    fun showChatWithContact(contactId: Long, contactName: String, context: Context) {
+        val bundle = Bundle()
+        bundle.putLong(IApiService.PARAM_CONTACT_ID, contactId)
+        bundle.putString(IApiService.PARAM_NAME, contactName)
+        context.startActivity<MessagesActivity>(args = bundle)
     }
 
     fun showPickFromDialog(activity: AppCompatActivity, onPick: (fromCamera: Boolean) -> Unit) {

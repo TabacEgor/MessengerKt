@@ -44,6 +44,9 @@
         <!--Account-->
         <activity android:name=".ui.account.AccountActivity"/>
 
+        <!--Messages-->
+        <activity android:name=".ui.home.MessagesActivity"/>
+
         <service android:name=".ui.firebase.FirebaseService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
