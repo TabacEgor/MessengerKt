@@ -26,6 +26,8 @@ interface IApiService {
         const val SEND_MESSAGE = "sendMessage.php"
         const val GET_LAST_MESSAGES = "getLastMessagesByUser.php"
         const val GET_MESSAGES_WITH_CONTACT = "getMessagesByUserWithContact.php"
+        const val DELETE_MESSAGES_BY_USER = "deleteMessagesByUser.php"
+        const val UPDATE_USER_LAST_SEEN = "updateUserLastSeen.php"
 
         //params
         const val PARAM_EMAIL = "email"
@@ -56,6 +58,9 @@ interface IApiService {
         const val PARAM_SENDER_USER_ID = "senderUserId"
         const val PARAM_RECEIVED_USER_ID = "receivedUserId"
         const val PARAM_MESSAGE_ID = "message_id"
+        const val PARAM_MESSAGES_IDS = "messages_ids"
+
+        const val PARAM_LAST_SEEN = "last_seen"
     }
 
     @FormUrlEncoded
@@ -109,4 +114,12 @@ interface IApiService {
     @FormUrlEncoded
     @POST(GET_MESSAGES_WITH_CONTACT)
     fun getMessagesWithContact(@FieldMap params: Map<String, String>): Call<GetMessagesResponse>
+
+    @FormUrlEncoded
+    @POST(DELETE_MESSAGES_BY_USER)
+    fun deleteMessagesByUser(@FieldMap params: Map<String, String>): Call<BaseResponse>
+
+    @FormUrlEncoded
+    @POST(UPDATE_USER_LAST_SEEN)
+    fun updateUserLastSeen(@FieldMap params: Map<String, String>): Call<BaseResponse>
 }
