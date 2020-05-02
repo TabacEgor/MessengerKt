@@ -2,10 +2,7 @@ package com.example.messenger.presentation.injection
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.messenger.presentation.viewmodel.AccountViewModel
-import com.example.messenger.presentation.viewmodel.FriendsViewModel
-import com.example.messenger.presentation.viewmodel.MediaViewModel
-import com.example.messenger.presentation.viewmodel.ViewModelFactory
+import com.example.messenger.presentation.viewmodel.*
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -30,4 +27,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MediaViewModel::class)
     abstract fun bindMediaViewModel(mediaViewModel: MediaViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MessagesViewModel::class)
+    abstract fun bindMessagesViewModel(messagesViewModel: MessagesViewModel): ViewModel
 }

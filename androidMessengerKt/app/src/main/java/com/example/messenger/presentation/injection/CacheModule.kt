@@ -8,6 +8,7 @@ import com.example.messenger.cache.SharedPrefsManager
 import com.example.messenger.cache.friends.FriendsDao
 import com.example.messenger.data.account.IAccountCache
 import com.example.messenger.data.friends.IFriendsCache
+import com.example.messenger.data.messages.IMessagesCache
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -32,4 +33,8 @@ class CacheModule {
     @Provides
     @Singleton
     fun provideFriendsCache(chatDatabase: ChatDatabase): IFriendsCache = chatDatabase.friendsDao
+
+    @Provides
+    @Singleton
+    fun provideMessagesCache(chatDatabase: ChatDatabase): IMessagesCache = chatDatabase.messagesDao
 }

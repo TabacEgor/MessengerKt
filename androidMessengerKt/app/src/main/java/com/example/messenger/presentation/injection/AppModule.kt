@@ -8,9 +8,13 @@ import com.example.messenger.data.friends.FriendsRepositoryImpl
 import com.example.messenger.data.friends.IFriendsCache
 import com.example.messenger.data.friends.IFriendsRemote
 import com.example.messenger.data.media.MediaRepositoryImpl
+import com.example.messenger.data.messages.IMessagesCache
+import com.example.messenger.data.messages.IMessagesRemote
+import com.example.messenger.data.messages.MessagesRepositoryImpl
 import com.example.messenger.domain.account.IAccountRepository
 import com.example.messenger.domain.friends.IFriendsRepository
 import com.example.messenger.domain.media.IMediaRepository
+import com.example.messenger.domain.messages.IMessagesRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -38,5 +42,11 @@ class AppModule(private val context: Context) {
     @Singleton
     fun provideMediaRepository(context: Context): IMediaRepository {
         return MediaRepositoryImpl(context)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMessagesRepository(remote: IMessagesRemote, cache: IMessagesCache, accountCache: IAccountCache): IMessagesRepository {
+        return MessagesRepositoryImpl(remote, cache, accountCache)
     }
  }
