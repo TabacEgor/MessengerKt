@@ -1,5 +1,6 @@
 package com.example.messenger.remote.service
 
+import com.example.messenger.remote.messages.GetMessagesResponse
 import com.example.messenger.remote.account.AuthResponse
 import com.example.messenger.remote.core.BaseResponse
 import com.example.messenger.remote.friends.GetFriendRequestsResponse
@@ -22,6 +23,9 @@ interface IApiService {
         const val GET_FRIENDS = "getContactsByUser.php"
         const val GET_FRIEND_REQUESTS = "getFriendRequestsByUser.php"
         const val EDIT_USER = "editUser.php"
+        const val SEND_MESSAGE = "sendMessage.php"
+        const val GET_LAST_MESSAGES = "getLastMessagesByUser.php"
+        const val GET_MESSAGES_WITH_CONTACT = "getMessagesByUserWithContact.php"
 
         //params
         const val PARAM_EMAIL = "email"
@@ -40,6 +44,18 @@ interface IApiService {
         const val PARAM_IMAGE_NEW_NAME = "image_new_name"
         const val PARAM_IMAGE_UPLOADED = "image_uploaded"
         const val PARAM_IMAGE = "image"
+
+        const val PARAM_SENDER_ID = "sender_id"
+        const val PARAM_RECEIVER_ID = "receiver_id"
+        const val PARAM_MESSAGE = "message"
+        const val PARAM_MESSAGE_TYPE = "message_type_id"
+        const val PARAM_MESSAGE_DATE = "message_date"
+        const val PARAM_CONTACT_ID = "contact_id"
+
+        const val PARAM_SENDER_USER = "senderUser"
+        const val PARAM_SENDER_USER_ID = "senderUserId"
+        const val PARAM_RECEIVED_USER_ID = "receivedUserId"
+        const val PARAM_MESSAGE_ID = "message_id"
     }
 
     @FormUrlEncoded
@@ -81,4 +97,16 @@ interface IApiService {
     @FormUrlEncoded
     @POST(EDIT_USER)
     fun editUser(@FieldMap params: Map<String, String>): Call<AuthResponse>
+
+    @FormUrlEncoded
+    @POST(SEND_MESSAGE)
+    fun sendMessage(@FieldMap params: Map<String, String>): Call<BaseResponse>
+
+    @FormUrlEncoded
+    @POST(GET_LAST_MESSAGES)
+    fun getLastMessages(@FieldMap params: Map<String, String>): Call<GetMessagesResponse>
+
+    @FormUrlEncoded
+    @POST(GET_MESSAGES_WITH_CONTACT)
+    fun getMessagesWithContact(@FieldMap params: Map<String, String>): Call<GetMessagesResponse>
 }
