@@ -16,7 +16,7 @@ import com.example.messenger.ui.core.ext.onSuccess
 
 class ChatsFragment : BaseListFragment() {
 
-    override val viewAdapter: BaseAdapter<*> = ChatsAdapter()
+    override val viewAdapter = ChatsAdapter()
 
     override val titleToolbar = R.string.chats
 
@@ -35,14 +35,14 @@ class ChatsFragment : BaseListFragment() {
             onFailure(failureData, ::handleFailure)
         }
 
-        setOnItemClickListener { it, v ->
+        viewAdapter.setOnClick( { it, v ->
             (it as? MessageEntity)?.let {
                 val contact = it.contact
                 if (contact != null) {
                     navigator.showChatWithContact(contact.id, contact.name, requireActivity())
                 }
             }
-        }
+        })
 
         ChatDatabase.getInstance(requireContext()).messagesDao.getLiveChats().observe(this, Observer {
             val list = it.distinctBy { it.contact?.id }.toList()
@@ -57,10 +57,8 @@ class ChatsFragment : BaseListFragment() {
     }
 
     fun handleChats(messages: List<MessageEntity>?) {
-        if (messages != null) {
-            viewAdapter.clear()
-            viewAdapter.add(messages)
-            viewAdapter.notifyDataSetChanged()
+        if (messages != null && messages.isNotEmpty()) {
+            viewAdapter.submitList(messages)
         }
     }
 }

@@ -6,15 +6,15 @@ import com.example.messenger.databinding.ItemChatBinding
 import com.example.messenger.domain.messages.MessageEntity
 import com.example.messenger.ui.core.BaseAdapter
 
-open class ChatsAdapter : BaseAdapter<ChatsAdapter.ChatViewHolder>() {
+open class ChatsAdapter : MessagesAdapter() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseAdapter.BaseViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemChatBinding.inflate(layoutInflater, parent, false)
         return ChatViewHolder(binding)
     }
 
-    class ChatViewHolder(val binding: ItemChatBinding) : BaseViewHolder(binding.root) {
+    class ChatViewHolder(val binding: ItemChatBinding) : BaseAdapter.BaseViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
                 onClick?.onClick(item, it)

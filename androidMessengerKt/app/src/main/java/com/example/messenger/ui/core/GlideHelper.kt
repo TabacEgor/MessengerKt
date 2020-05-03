@@ -5,11 +5,12 @@ import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.example.messenger.R
 import com.example.messenger.remote.service.ServiceFactory
 
 object GlideHelper {
 
-    fun loadImage(context: Context, path: String?, iv: ImageView, placeholder: Drawable = iv.drawable) {
+    fun loadImage(context: Context, path: String?, iv: ImageView, placeholder: Drawable? = iv.drawable) {
         val imgPath = ServiceFactory.SERVER_URL + path?.replace("..", "")
 
         Glide.with(context)
@@ -26,6 +27,13 @@ object GlideHelper {
     @JvmStatic
     @BindingAdapter("profileImage")
     fun ImageView.loadImage(image: String?) {
-        loadImage(this.context, image, this)
+        loadImage(this.context, image, this, R.drawable.ic_account_circle)
+    }
+
+    @JvmStatic
+    @BindingAdapter("messageImage")
+    fun ImageView.loadMessageImage(message: String?) {
+        if (message.isNullOrBlank()) return
+        loadImage(this.context, message, this, R.drawable.placeholder)
     }
 }

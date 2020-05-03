@@ -17,7 +17,6 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
@@ -30,6 +29,19 @@
                 android:layout_height="@dimen/account_photo_dim"
                 android:src="@drawable/ic_account_circle"
                 app:profileImage="@{message.contact.image}"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgOnline"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/white"
+                android:layout_alignEnd="@+id/imgPhoto"
+                android:layout_alignBottom="@+id/imgPhoto"
+                android:visibility="invisible"
+                tools:visibility="visible"
+                android:src="@color/colorPrimary"
+                app:lastSeen="@{message.contact.lastSeen}"/>
 
         <LinearLayout
                 android:layout_centerVertical="true"
@@ -62,7 +74,7 @@
                     android:layout_gravity="center_vertical"
                     android:maxLines="1"
                     android:ellipsize="end"
-                    android:text="@{message.message}"
+                    android:text="@{message.type == 1 ? message.message : @string/photo}"
                     tools:text="Текст"
                     android:textSize="14sp" />
         </LinearLayout>
@@ -73,9 +85,9 @@
                 android:layout_height="wrap_content"
                 tools:text="Дата"
                 android:textSize="14sp"
+                android:layout_marginTop="12dp"
                 app:date="@{message.date}"
-                android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true">
+                android:layout_alignParentEnd="true">
         </TextView>
 
     </RelativeLayout>

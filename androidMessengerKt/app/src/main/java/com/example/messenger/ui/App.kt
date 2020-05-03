@@ -14,9 +14,12 @@ import com.example.messenger.ui.friends.FriendRequestsFragment
 import com.example.messenger.ui.friends.FriendsFragment
 import com.example.messenger.ui.home.ChatsFragment
 import com.example.messenger.ui.home.HomeActivity
+import com.example.messenger.ui.home.MessagesActivity
 import com.example.messenger.ui.home.MessagesFragment
 import com.example.messenger.ui.login.LoginFragment
 import com.example.messenger.ui.register.RegisterFragment
+import com.example.messenger.ui.user.UserActivity
+import com.example.messenger.ui.user.UserFragment
 import dagger.Component
 import okhttp3.Route
 import javax.inject.Singleton
@@ -48,6 +51,8 @@ interface AppComponent {
     fun inject(activity: RouteActivity)
     fun inject(activity: HomeActivity)
     fun inject(activity: AccountActivity)
+    fun inject(activity: MessagesActivity)
+    fun inject(activity: UserActivity)
 
     // fragments
     fun inject(fragment: RegisterFragment)
@@ -57,6 +62,7 @@ interface AppComponent {
     fun inject(fragment: FriendRequestsFragment)
     fun inject(fragment: AccountFragment)
     fun inject(fragment: MessagesFragment)
+    fun inject(fragment: UserFragment)
 
     // services
     fun inject(service: FirebaseService)

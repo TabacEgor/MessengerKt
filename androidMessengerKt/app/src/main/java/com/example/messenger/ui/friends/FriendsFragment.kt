@@ -15,7 +15,7 @@ import com.example.messenger.ui.core.ext.onSuccess
 
 class FriendsFragment : BaseListFragment() {
 
-    override val viewAdapter: BaseAdapter<*> = FriendsAdapter()
+    override val viewAdapter = FriendsAdapter()
     override val titleToolbar: Int = R.string.screen_friends
 
     lateinit var friendsViewModel: FriendsViewModel
@@ -64,10 +64,8 @@ class FriendsFragment : BaseListFragment() {
 
     private fun handleFriends(friends: List<FriendEntity>?) {
         hideProgress()
-        if (friends != null) {
-            viewAdapter.clear()
-            viewAdapter.add(friends)
-            viewAdapter.notifyDataSetChanged()
+        if (friends != null && friends.isNotEmpty()) {
+            viewAdapter.submitList(friends)
         }
     }
 

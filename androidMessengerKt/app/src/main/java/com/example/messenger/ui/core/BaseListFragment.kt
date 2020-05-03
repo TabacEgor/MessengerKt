@@ -11,7 +11,7 @@ abstract class BaseListFragment : BaseFragment() {
     private lateinit var recyclerView: RecyclerView
     protected lateinit var lm: RecyclerView.LayoutManager
 
-    protected abstract val viewAdapter: BaseAdapter<*>
+    protected abstract val viewAdapter: BaseAdapter<*, *>
 
     override val layoutId: Int = R.layout.fragment_list
 

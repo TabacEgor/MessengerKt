@@ -15,6 +15,7 @@ import com.example.messenger.domain.type.Failure
 import com.example.messenger.domain.type.None
 import com.example.messenger.presentation.viewmodel.AccountViewModel
 import com.example.messenger.presentation.viewmodel.FriendsViewModel
+import com.example.messenger.remote.service.IApiService
 import com.example.messenger.ui.App
 import com.example.messenger.ui.core.BaseActivity
 import com.example.messenger.ui.core.BaseFragment
@@ -72,6 +73,11 @@ class HomeActivity : BaseActivity() {
                 friendsViewModel.getFriendRequests()
                 binding.navigation.requestContainer.visibility = View.VISIBLE
             }
+            NotificationHelper.TYPE_SEND_MESSAGE -> {
+                val contactId = intent.getLongExtra(IApiService.PARAM_CONTACT_ID, 0L)
+                val contactName = intent.getStringExtra(IApiService.PARAM_NAME)
+                navigator.showChatWithContact(contactId, contactName, this)
+            }
         }
 
         binding.navigation.btnLogout.setOnClickListener {
@@ -124,6 +130,7 @@ class HomeActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         accountViewModel.getAccount()
+        accountViewModel.updateLastSeen()
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

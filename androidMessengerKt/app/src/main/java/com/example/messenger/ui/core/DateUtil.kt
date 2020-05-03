@@ -1,5 +1,7 @@
 package com.example.messenger.ui.core
 
+import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import java.text.SimpleDateFormat
@@ -7,10 +9,19 @@ import java.util.*
 
 object DateUtil {
 
+    private const val TIME_TO_AFK = 180000
+
     @JvmStatic
     @BindingAdapter("date")
     fun TextView.setDate(date: Long) {
         text = date.parseDate()
+    }
+
+    @JvmStatic
+    @BindingAdapter("lastSeen")
+    fun ImageView.lastSeen(lastSeen: Long) {
+        val isOnline = (lastSeen + TIME_TO_AFK - Date().time) > 0
+        visibility = if (isOnline) View.VISIBLE else View.INVISIBLE
     }
 }
 

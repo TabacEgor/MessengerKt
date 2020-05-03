@@ -48,6 +48,7 @@ ext {
     permissionUtilsVersion = "1.0.9"
     glideVersion = "4.9.0"
     roomVersion = "2.0.0"
+    photoViewVersion = "2.3.0"
 }
 
 dependencies {
@@ -109,6 +110,7 @@ dependencies {
     implementation "com.github.kayvannj:PermissionUtils:$permissionUtilsVersion"
     implementation "com.andreabaccega:android-form-edittext:$formEditTextVersion"
     implementation "de.hdodenhof:circleimageview:$circleImageViewVersion"
+    implementation "com.github.chrisbanes:PhotoView:$photoViewVersion"
 
     //testing
     testImplementation 'junit:junit:4.12'

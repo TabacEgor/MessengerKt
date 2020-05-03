@@ -9,9 +9,9 @@ import com.example.messenger.databinding.ItemMessageOtherBinding
 import com.example.messenger.domain.messages.MessageEntity
 import com.example.messenger.ui.core.BaseAdapter
 
-open class MessagesAdapter : ListAdapter<MessageEntity, BaseAdapter.BaseViewHolder>(MessageDiffCallback()) {
+open class MessagesAdapter : BaseAdapter<MessageEntity, BaseAdapter.BaseViewHolder>(MessageDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseAdapter.BaseViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent.context)
 
@@ -24,19 +24,21 @@ open class MessagesAdapter : ListAdapter<MessageEntity, BaseAdapter.BaseViewHold
         return holder
     }
 
-    override fun onBindViewHolder(holder: BaseAdapter.BaseViewHolder, position: Int) {
-        holder.bind(getItem(position))
-    }
-
     override fun getItemViewType(position: Int): Int {
         (getItem(position) as MessageEntity).let {
             return if (it.fromMe) 0 else 1
         }
     }
 
-    class MessageMeViewHolder(val binding: ItemMessageMeBinding) : BaseAdapter.BaseViewHolder(binding.root) {
+    class MessageMeViewHolder(val binding: ItemMessageMeBinding) : BaseViewHolder(binding.root) {
         init {
-            binding.root.setOnClickListener {
+            binding.root.setOnLongClickListener {
+                onClick?.onLongClick(item, it)
+
+                true
+            }
+
+            binding.imgPhoto.setOnClickListener {
                 onClick?.onClick(item, it)
             }
         }
@@ -50,7 +52,13 @@ open class MessagesAdapter : ListAdapter<MessageEntity, BaseAdapter.BaseViewHold
 
     class MessageOtherViewHolder(val binding: ItemMessageOtherBinding) : BaseAdapter.BaseViewHolder(binding.root) {
         init {
-            binding.root.setOnClickListener {
+            binding.root.setOnLongClickListener {
+                onClick?.onLongClick(item, it)
+
+                true
+            }
+
+            binding.imgPhoto.setOnClickListener {
                 onClick?.onClick(item, it)
             }
         }

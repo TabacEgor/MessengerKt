@@ -2,11 +2,12 @@ package com.example.messenger.ui.friends
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import com.example.messenger.databinding.ItemFriendBinding
 import com.example.messenger.domain.friends.FriendEntity
 import com.example.messenger.ui.core.BaseAdapter
 
-class FriendsAdapter : BaseAdapter<FriendsAdapter.FriendViewHolder>() {
+class FriendsAdapter : BaseAdapter<FriendEntity, FriendsAdapter.FriendViewHolder>(FriendsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendsAdapter.FriendViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -26,6 +27,17 @@ class FriendsAdapter : BaseAdapter<FriendsAdapter.FriendViewHolder>() {
             (item as? FriendEntity)?.let {
                 binding.friend = it
             }
+        }
+    }
+
+    class FriendsDiffCallback : DiffUtil.ItemCallback<FriendEntity>() {
+
+        override fun areItemsTheSame(oldItem: FriendEntity, newItem: FriendEntity): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: FriendEntity, newItem: FriendEntity): Boolean {
+            return oldItem == newItem
         }
     }
 }

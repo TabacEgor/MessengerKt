@@ -72,11 +72,11 @@
     <string name="message">Message</string>
     <string name="send_message">send you message</string>
 
-    <string name="photo">Фотография</string>
+    <string name="photo">Photo</string>
 
-    <string name="remove_message">Удалить сообщение?</string>
+    <string name="remove_message">Delete message?</string>
 
-    <string name="send_friend_message">Отправить сообщение</string>
+    <string name="send_friend_message">Send message</string>
 
 
 </resources>

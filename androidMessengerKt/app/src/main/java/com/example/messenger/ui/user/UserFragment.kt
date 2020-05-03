@@ -25,6 +25,8 @@ class UserFragment : BaseFragment() {
                 val email = args.getString(IApiService.PARAM_EMAIL)
                 val status = args.getString(IApiService.PARAM_STATUS)
 
+                val id = args.getLong(IApiService.PARAM_CONTACT_ID)
+
                 GlideHelper.loadImage(
                     requireContext(),
                     image,
@@ -39,6 +41,14 @@ class UserFragment : BaseFragment() {
                 if (tvStatus.text.isEmpty()) {
                     tvStatus.visibility = View.GONE
                     tvHintStatus.visibility = View.GONE
+                }
+
+                imgPhoto.setOnClickListener {
+                    navigator.showImageDialog(requireContext(), imgPhoto.drawable)
+                }
+
+                btnSendMessage.setOnClickListener {
+                    navigator.showChatWithContact(id, name, requireContext())
                 }
             }
         }

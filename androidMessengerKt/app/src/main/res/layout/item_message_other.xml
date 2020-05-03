@@ -4,6 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
                 name="message"
                 type="com.example.messenger.domain.messages.MessageEntity" />
@@ -45,10 +46,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
+                    android:visibility="@{message.type == 2 ? View.GONE : View.VISIBLE}"
                     android:text="@{message.message}"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     tools:text="Привет" />
+
+            <ImageView
+                    android:id="@+id/imgPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="4dp"
+                    android:visibility="@{message.type == 1 ? View.GONE : View.VISIBLE}"
+                    app:messageImage="@{message.type == 1 ? null : message.message}"/>
         </LinearLayout>
     </RelativeLayout>
 </layout>
