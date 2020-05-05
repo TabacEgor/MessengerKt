@@ -87,6 +87,12 @@ class MessagesFragment : BaseListFragment() {
             }
         }
 
+        btnMlKit.setOnClickListener {
+            base {
+                navigator.showMlTrick(this)
+            }
+        }
+
         ChatDatabase.getInstance(requireContext()).messagesDao.getLiveMessagesWithContact(contactId).observe(this, Observer {
             handleMessages(it)
         })

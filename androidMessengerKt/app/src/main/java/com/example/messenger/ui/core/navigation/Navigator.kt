@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.messenger.R
 import com.example.messenger.domain.friends.FriendEntity
+import com.example.messenger.mlkit.LivePreviewActivity
 import com.example.messenger.presentation.viewmodel.MediaViewModel
 import com.example.messenger.remote.service.IApiService
 import com.example.messenger.ui.account.AccountActivity
@@ -120,6 +121,10 @@ class Navigator @Inject constructor(
         intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
 
         activity.startActivityForResult(intent, MediaViewModel.CAPTURE_IMAGE_REQUEST_CODE)
+    }
+
+    fun showMlTrick(context: Context) {
+        context.startActivity<LivePreviewActivity>()
     }
 
     fun showGallery(activity: AppCompatActivity) {

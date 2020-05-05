@@ -47,6 +47,9 @@
         <!--Messages-->
         <activity android:name=".ui.home.MessagesActivity"/>
 
+        <!--Messages-->
+        <activity android:name=".mlkit.LivePreviewActivity"/>
+
         <service android:name=".ui.firebase.FirebaseService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>

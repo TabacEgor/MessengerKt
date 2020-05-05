@@ -3,7 +3,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:tools="http://schemas.android.com/tools"
         android:background="@color/translucent5">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -51,9 +50,22 @@
                 android:hint="@string/message"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="@+id/btnPhoto"
-                app:layout_constraintEnd_toStartOf="@+id/btnSend"
+                app:layout_constraintEnd_toStartOf="@+id/btnMlKit"
                 app:layout_constraintStart_toEndOf="@+id/btnPhoto"
                 app:layout_constraintTop_toTopOf="@+id/btnPhoto" />
+
+        <ImageView
+                android:id="@+id/btnMlKit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:src="@drawable/mlicon"
+                android:tint="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnSend" />
 
         <ImageView
                 android:id="@+id/btnSend"
