@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.kayvannj:PermissionUtils:1.0.9@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3551ab0c0f4dd1d6c13eb60c2bbc667a/jetified-PermissionUtils-1.0.9/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3551ab0c0f4dd1d6c13eb60c2bbc667a/jetified-PermissionUtils-1.0.9/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3551ab0c0f4dd1d6c13eb60c2bbc667a/jetified-PermissionUtils-1.0.9/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.kayvannj/PermissionUtils/1.0.9/8cce00edfc35061981c26b33893d769ae68c32bc/PermissionUtils-1.0.9-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.kayvannj/PermissionUtils/1.0.9/db93716e4974ff3f4665805d0d153339076cac70/PermissionUtils-1.0.9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
